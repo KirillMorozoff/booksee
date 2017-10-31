@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>Booksee - Best Book Finder</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{% static "plugins/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "plugins/font-awesome/css/font-awesome.css" %}">
+    <link id="theme-style" rel="stylesheet" href="{% static "css/styles-2.css" %}">
+    <link id="theme-style" rel="stylesheet" href="{% static "css/jquery-ui.css" %}">
+    <link  rel="stylesheet" href="{% static "css/bootstrap-multiselect.css" %}">
+
+    <script type="text/javascript" src="{% static "/plugins/jquery-1.11.3.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery-ui.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/sliders.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap-multiselect.js" %}">></script>
+    <script type="text/javascript" src="{% static "/plugins/bootstrap/js/bootstrap.min.js" %}"></script>
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <a href="{% url 'index' %}"><img class="profile" width="130px" src="{% static "images/profile.png" %}" alt="Logo" /></a>
+                <h1 class="name" style="font-family: 'Pacifico', cursive; font-size: 36px;">Booksee</h1>
+                <h3 class="tagline">Book Navigator</h3>
+            </div><!--//profile-container-->
+
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fa fa-heart"></i><a href="#">Top 250</a></li>
+                    <li class="phone"><i class="fa fa-certificate"></i><a href="#">List of Nobel laureates</a></li>
+                    <li class="website"><i class="fa fa-child"></i><a href="#">Best Young Adult Books</a></li>
+                    <li class="linkedin"><i class="fa fa-rocket"></i><a href="#">Best of the 20th Century</a></li>
+                    <li class="github"><i class="fa fa-key"></i><a href="#">Best Historical Fiction</a></li>
+                    <li class="twitter"><i class="fa fa-magic"></i><a href="#">The Best Epic Fantasy</a></li>
+                </ul>
+            </div><!--//contact-container-->
+        </div><!--//sidebar-wrapper-->
+
+        <div class="main-wrapper" style=" padding-top: 12px;">
+
+
+            <style>
+                .form_div{
+                  float:left;
+                  padding-right: 5px;
+                }
+
+                form h2{
+                  width: 160px;
+                }
+                form p{
+                  margin:0;
+                  text-align: center;
+                }
+              #text input{
+                  width: 200px;
+                  height: 34px;
+                  color: #495057;
+                  background-color: #fff;
+                  background-image: none;
+                  background-clip: padding-box;
+                  border: 1px solid rgb(204,204,204);
+                  border-radius: .30rem;
+                  text-align: center;
+                }
+                #submit{
+                  width: 120px;
+                  font-weight: bolder;
+                  background: orange;
+                  border-color: orange;
+                  margin-top: 10px;
+                  font-size: 14px;
+
+                }
+
+                #language {
+                  width: 400px;
+                  padding-top: 15px;
+                }
+                #language button{
+                  width: 405px !important;
+                }
+                #list p{
+                  margin: 0px;
+                }
+                #stars{
+                  position: absolute;
+                  left: 580px;
+                }
+                .stars-1{
+                  width: 100px;
+                  height: 19px;
+                  background-image: url({% static "images/stars-1.jpg" %});
+                  background-size: cover;
+                  position: absolute;
+
+                }
+                #stars-2{
+                  width: 100px;
+                  height: 19px;
+                  background-image: url({% static "images/stars-2.jpg" %});
+                  background-size: cover;
+                  position: absolute;
+
+                }
+                #statistics{
+                    float: right;
+                    padding-top: 25px;
+                    font-size: 12px;
+                    color: grey;
+                }
+                #statistics small{
+                  padding-right: 8px;
+                }
+                #price2, #price3, #price4, #price5{
+                      border: 0 !important;
+                      width: 405px !important;
+                }
+
+
+            </style>
+            <h1 align="center" style="font-family: 'Pacifico'; color: #35776d; font-size: 45px; padding-bottom: 12px;">Book Navigator</h1>
+
+              <form method="POST">
+
+                  <div class="form_div">
+                    <div class="form_div"><p><sub>Choose required</sub></p><h2 class="section-title"><i class="fa fa-font"></i>Languages</h2></div>
+                    <div class="form_div" id="language">{{form.languages}}</div>
+
+                  </div>
+
+                      <div class="form_div">
+                        <div class="form_div"><p><sub>Nominations and</sub></p><h2 class="section-title"><i class="fa fa-trophy"></i>Awards</h2></div>
+                        <div class="form_div"><p><sub>Show</sub></p>{{form.awards}}</div>
+                        <div class="form_div"><p><sub>Don't show</sub></p>{{form.awards_dont_show}}</div>
+                    </div>
+
+                      <div class="form_div">
+                        <div class="form_div"><p><sub>Choose styles and</sub></p><h2 class="section-title"><i class="fa fa-book"></i>Genres</h2></div>
+                        <div class="form_div"><p><sub>Show</sub></p>{{form.genres}}</div>
+                        <div class="form_div"><p><sub>Don't show</sub></p>{{form.genres_dont_show}}</div>
+                      </div>
+
+                      <div class="form_div" id="dates">
+                        <div class="form_div"><p><sub>Period of the first</sub></p><h2 class="section-title"><i class="fa fa-calendar"></i>Edition</h2></div>
+                        <div class="form_div" id="text"><p><sub>From</sub></p>{{form.first_edition_from}}</div>
+                        <div class="form_div" id="text"><p><sub>To</sub></p>{{form.first_edition_to}}</div>
+                      </div>
+
+                      <div class="form_div" id="dates">
+                        <div class="form_div"><p><sub>Choose range</sub></p><h2 class="section-title"><i class="fa fa-bookmark"></i>Pages</h2></div>
+                        <div class="form_div" id="text" style="width:405px; align-text:center;">{{form.number_of_pages_from}}<div id="slider"><div id = "slider-2"></div></div></div>
+                        <!-- <div class="form_div" id="text"><p><sub>To</sub></p>{{form.number_of_pages_to}}</div> -->
+                      </div>
+
+                      <div class="form_div" id="dates">
+                        <div class="form_div"><p><sub>Choose range</sub></p><h2 class="section-title"><i class="fa fa-star"></i>Raiting</h2></div>
+                        <div class="form_div" id="text" style="width:405px; align-text:center;">{{form.rating_from}}<div id="slider"><div id = "slider-3"></div></div></div>
+                        <!-- <div class="form_div" id="text"><p><sub>To</sub></p>{{form.rating_to}}</div> -->
+                      </div>
+
+                      <div class="form_div" id="dates">
+                        <div class="form_div"><p><sub>Number of</sub></p><h2 class="section-title"><i class="fa fa-thumbs-up"></i>Raitings</h2></div>
+                        <div class="form_div" id="text" style="width:405px; align-text:center;">{{form.number_of_ratings_from}}<div id="slider"><div id = "slider-4"></div></div></div>
+                        <!-- <div class="form_div" id="text"><p><sub>To</sub></p>{{form.number_of_ratings_to}}</div> -->
+                      </div>
+
+                      <div class="form_div" id="dates">
+                        <div class="form_div"><p><sub>Number of</sub></p><h2 class="section-title"><i class="fa fa-list"></i>Reviews</h2></div>
+                        <div class="form_div" id="text" style="width:405px; align-text:center;">{{form.number_of_reviews_from}}<div id="slider"><div id = "slider-5"></div></div></div>
+                        <!--<div class="form_div" id="text"><p><sub>To</sub></p>{{form.number_of_reviews_to}}</div> -->
+                      </div>
+
+                  {% csrf_token %}
+
+
+
+
+
+
+                  <script type="text/javascript">
+                      $('select').multiselect({
+                          maxHeight: 500,
+                          enableFiltering: true,
+                          buttonWidth: '200px',
+                          includeSelectAllOption: true,
+                      });
+                  </script>
+
+
+                  <div style="text-align: center;">
+                      <input type="submit" id="submit" class="btn btn-primary" value="SUBMIT">
+
+                  </div>
+              </form>
+              <h1 align="left" style="font-family: 'Pacifico'; color: #35776d; font-size: 35px; padding-bottom: 12px;">Results:</h1>
+              <div id="list" name="">
+                <ol>
+                {% for o in books %}
+                      <li>
+                          <div id="stars">
+                              <div id="stars-2"></div>
+                              <div class="stars-1"></div>
+                              <div id="statistics"><small class="raiting">{{ o.3 }}</small><small class="fa fa-thumbs-up"> {{ o.5 }} </small><br><small class="fa fa-list"> {{ o.6 }} </small></div>
+                          </div>
+                          <script>
+                              var raiting = document.getElementsByClassName('raiting');
+                              var stars = document.getElementsByClassName('stars-1');
+
+                              for(var i = 0; i < stars.length; i++){
+                                var length = raiting[i].innerHTML*100/5 ;
+                                stars[i].style.width = length + "px";
+                              }
+                          </script>
+
+
+
+
+                          <div style="width: 450px;">
+                              <p><b>{{ o.1 }}</b></p>
+                              <p>{{ o.2 }}</p>
+                              <p><small>{{ o.4 }}</small></p>
+
+                              <hr>
+                          </div>
+                    </li>
+                {% endfor %}
+                </ol>
+              </div>
+
+
+
+</body>
+</html>
